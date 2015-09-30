@@ -1,0 +1,8 @@
+[Unit]
+Description=Execute script for daily burndown
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/curl http://localhost:8010/newmonth
+User=root
+Group=systemd-journal

@@ -1,0 +1,9 @@
+[Unit]
+Description=Timer for burndown daily update
+
+[Timer]
+OnUnitActiveSec=6h
+OnBootSec=10min
+ 
+[Install]
+WantedBy=timers.target
