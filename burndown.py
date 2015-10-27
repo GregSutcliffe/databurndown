@@ -9,15 +9,18 @@ import pickle
 import string
 import json
 import cherrypy
+from ConfigParser import SafeConfigParser
 
 global quota
 global aauser
 global aapass
-aauser = 'xx99@a' # Update this to your clueless user
-aapass = 'xxxxxxxxxxxxxxxxxxxxx' # Update this to your clueless pass
-quota = 100 # Update this to your quota in GB 100 is for std Home::1
 
+parser = SafeConfigParser()
+parser.read('burndown.ini')
 
+aauser = parser.get('main','aauser')
+aapass = parser.get('main','aapass')
+quota  = int(parser.get('main','quota'))
 
 def getQuota(user, password):
 	payload = {'JSON': 0}
